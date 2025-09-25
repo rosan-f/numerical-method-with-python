@@ -1,0 +1,5 @@
+# Else di dalam for loop
+for i in range(3):
+    print(i)
+else:
+    print("Loop selesai tanpa break")
