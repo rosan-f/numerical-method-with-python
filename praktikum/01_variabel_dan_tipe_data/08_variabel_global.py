@@ -1,8 +1,7 @@
-# Variabel global
-x = "Python"   # variabel global
+x = "Python"
 
 def cetak():
-    global x   # akses & ubah variabel global
+    global x
     x = "JavaScript"
     print("Di dalam fungsi:", x)
 

@@ -1,6 +1,5 @@
-# Nama variabel multi kata
-nama_depan = "Rosan"          # snake_case
-NamaBelakang = "F"            # PascalCase
-umurMahasiswa = 21            # camelCase
+first_name = "Rosan"
+last_name = "SanTech"
+full_name = first_name + " " + last_name
 
-print(nama_depan, NamaBelakang, umurMahasiswa)
+print(full_name)
