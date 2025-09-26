@@ -1,4 +1,3 @@
-# Nilai Boolean hanya ada dua: True atau False
 a = True
 b = False
 

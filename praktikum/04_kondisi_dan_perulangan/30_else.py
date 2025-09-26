@@ -1,4 +1,3 @@
-# If else
 umur = 18
 
 if umur >= 18:

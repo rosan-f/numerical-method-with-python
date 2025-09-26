@@ -1,5 +1,4 @@
-# Set: koleksi item unik, tidak ada duplikat
-hobi = {"coding", "gaming", "makan", "coding"}  # 'coding' akan otomatis unik
+hobi = {"coding", "gaming", "makan", "coding"}
 
 print(hobi)
 hobi.add("tidur")

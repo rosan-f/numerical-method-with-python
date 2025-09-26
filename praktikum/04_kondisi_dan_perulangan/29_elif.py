@@ -1,4 +1,3 @@
-# Elif (else if)
 x = 7
 
 if x > 10:

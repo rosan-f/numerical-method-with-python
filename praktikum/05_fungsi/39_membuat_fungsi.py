@@ -1,6 +1,4 @@
-# Membuat fungsi sederhana
 def sapa():
-    print("Halo, aku fungsi!")
+    print("Halo, aku rosan")
 
-# Memanggil fungsi
 sapa()

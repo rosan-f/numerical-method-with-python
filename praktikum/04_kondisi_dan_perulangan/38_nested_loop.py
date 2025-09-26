@@ -1,4 +1,3 @@
-# Nested loop (loop dalam loop)
 angka = [1, 2, 3]
 huruf = ["a", "b", "c"]
 

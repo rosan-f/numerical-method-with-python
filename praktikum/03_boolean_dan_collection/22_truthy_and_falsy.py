@@ -1,7 +1,6 @@
-# Kebanyakan nilai adalah True, kecuali nilai tertentu (False, 0, "", None, dsb)
-print(bool("Hello"))   # True
-print(bool(15))        # True
-print(bool(0))         # False
-print(bool(""))        # False
-print(bool(None))      # False
-print(bool([]))        # False
+print(bool("Hello"))
+print(bool(15))
+print(bool(0))
+print(bool(""))
+print(bool(None))
+print(bool([]))

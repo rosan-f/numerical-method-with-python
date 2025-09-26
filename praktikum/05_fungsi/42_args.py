@@ -1,4 +1,3 @@
-# *args untuk jumlah argumen tak terbatas
 def total(*angka):
     hasil = 0
     for i in angka:
