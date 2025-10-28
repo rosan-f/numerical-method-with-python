@@ -9,26 +9,30 @@ def metode_biseksi(fungsi, batas_bawah, batas_atas, toleransi=1e-6, iterasi_maks
     
     for langkah in range(1, iterasi_maks + 1):
         titik_tengah = (batas_bawah + batas_atas) / 2
+        nilai_tengah = fungsi(titik_tengah)
+        galat = abs(batas_atas - batas_bawah)
+
         hasil_iterasi.append([
             langkah,
             round(batas_bawah, 6),
             round(batas_atas, 6),
             round(titik_tengah, 8),
-            fungsi(titik_tengah)
+            round(nilai_tengah, 10),
+            round(galat, 10)
         ])
         
-        if abs(fungsi(titik_tengah)) < toleransi:
+        if abs(nilai_tengah) < toleransi or galat < toleransi:
             print(f"Akar ditemukan setelah {langkah} iterasi.")
             break
         
-        if fungsi(batas_bawah) * fungsi(titik_tengah) < 0:
+        if fungsi(batas_bawah) * nilai_tengah < 0:
             batas_atas = titik_tengah
         else:
             batas_bawah = titik_tengah
 
     tabel_hasil = pd.DataFrame(
         hasil_iterasi,
-        columns=['Iterasi ke-', 'Batas Bawah (a)', 'Batas Atas (b)', 'Perkiraan Akar (c)', 'f(c)']
+        columns=['Iterasi ke-', 'Batas Bawah (a)', 'Batas Atas (b)', 'Perkiraan Akar (c)', 'f(c)', 'Galat (|b - a|)']
     )
 
     print("\nTabel Proses Iterasi Metode Biseksi:\n")
@@ -36,6 +40,7 @@ def metode_biseksi(fungsi, batas_bawah, batas_atas, toleransi=1e-6, iterasi_maks
     
     return titik_tengah
 
+# Fungsi yang ingin dicari akarnya
 def fungsi(x):
     return 2*x**2 + 3*x - 4
 

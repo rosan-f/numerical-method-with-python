@@ -6,31 +6,40 @@ def regula_falsi(fungsi, batas_bawah, batas_atas, toleransi=1e-6, iterasi_maks=1
         return None
     
     hasil_iterasi = []  
+    c_sebelumnya = None  
     
     for langkah in range(1, iterasi_maks + 1):
-        # Rumus ini mencari titik potong antara garis lurus dari (a, f(a)) ke (b, f(b)) dengan sumbu X. Itulah perkiraan akar yang baru.”
         titik_tengah = batas_atas - (fungsi(batas_atas) * (batas_atas - batas_bawah)) / (fungsi(batas_atas) - fungsi(batas_bawah))
+        nilai_tengah = fungsi(titik_tengah)
+        
+        if c_sebelumnya is None:
+            galat = None
+        else:
+            galat = abs(titik_tengah - c_sebelumnya)
         
         hasil_iterasi.append([
             langkah,
             round(batas_bawah, 6),
             round(batas_atas, 6),
             round(titik_tengah, 8),
-            fungsi(titik_tengah)
+            round(nilai_tengah, 10),
+            None if galat is None else round(galat, 10)
         ])
 
-        if abs(fungsi(titik_tengah)) < toleransi:
+        if abs(nilai_tengah) < toleransi:
             print(f"Akar ditemukan setelah {langkah} iterasi.")
             break
-        
+
         if fungsi(titik_tengah) * fungsi(batas_bawah) < 0:
             batas_atas = titik_tengah
         else:
             batas_bawah = titik_tengah
+        
+        c_sebelumnya = titik_tengah
 
     tabel_hasil = pd.DataFrame(
         hasil_iterasi,
-        columns=['Iterasi ke-', 'Batas Bawah (a)', 'Batas Atas (b)', 'Perkiraan Akar (c)', 'f(c)']
+        columns=['Iterasi ke-', 'Batas Bawah (a)', 'Batas Atas (b)', 'Perkiraan Akar (c)', 'f(c)', 'Galat (|cₙ - cₙ₋₁|)']
     )
 
     print("\nTabel Proses Iterasi Regula Falsi:\n")
